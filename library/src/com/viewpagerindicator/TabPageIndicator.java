@@ -17,10 +17,12 @@
 package com.viewpagerindicator;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
@@ -37,6 +39,7 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 public class TabPageIndicator extends HorizontalScrollView implements PageIndicator {
     /** Title text used when no title is provided by the adapter. */
     private static final CharSequence EMPTY_TITLE = "";
+    
 
     /**
      * Interface for a callback when the selected tab has been reselected.
@@ -131,6 +134,14 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
         };
         post(mTabSelector);
     }
+public void setTabColor(int position,int color){
+	
+	final View tabView = mTabLayout.getChildAt(position);
+	tabView.setBackgroundColor(color);
+}
+
+
+
 
     @Override
     public void onAttachedToWindow() {
